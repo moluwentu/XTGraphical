@@ -15,7 +15,8 @@
 		6D2949A71E110E4200F3E7DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D2949A51E110E4200F3E7DC /* LaunchScreen.storyboard */; };
 		6D2949B21E110E4200F3E7DC /* XTGraphicalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2949B11E110E4200F3E7DC /* XTGraphicalTests.m */; };
 		6D2949BD1E110E4200F3E7DC /* XTGraphicalUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2949BC1E110E4200F3E7DC /* XTGraphicalUITests.m */; };
-		6D2949CF1E111A9500F3E7DC /* XTCirView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2949CE1E111A9500F3E7DC /* XTCirView.m */; };
+		6D2949E81E12148800F3E7DC /* XTCirView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2949E61E12148800F3E7DC /* XTCirView.m */; };
+		6D2949EB1E124F8600F3E7DC /* XTGraphicalLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2949EA1E124F8600F3E7DC /* XTGraphicalLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +53,10 @@
 		6D2949B81E110E4200F3E7DC /* XTGraphicalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XTGraphicalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D2949BC1E110E4200F3E7DC /* XTGraphicalUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XTGraphicalUITests.m; sourceTree = "<group>"; };
 		6D2949BE1E110E4200F3E7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D2949CD1E111A9500F3E7DC /* XTCirView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTCirView.h; sourceTree = "<group>"; };
-		6D2949CE1E111A9500F3E7DC /* XTCirView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTCirView.m; sourceTree = "<group>"; };
+		6D2949E51E12148800F3E7DC /* XTCirView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTCirView.h; sourceTree = "<group>"; };
+		6D2949E61E12148800F3E7DC /* XTCirView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTCirView.m; sourceTree = "<group>"; };
+		6D2949E91E124F8600F3E7DC /* XTGraphicalLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTGraphicalLayer.h; sourceTree = "<group>"; };
+		6D2949EA1E124F8600F3E7DC /* XTGraphicalLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTGraphicalLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +107,9 @@
 		6D2949961E110E4200F3E7DC /* XTGraphical */ = {
 			isa = PBXGroup;
 			children = (
+				6D2949E21E12148800F3E7DC /* XTGraphicalView */,
 				6D29499A1E110E4200F3E7DC /* AppDelegate.h */,
 				6D29499B1E110E4200F3E7DC /* AppDelegate.m */,
-				6D2949CD1E111A9500F3E7DC /* XTCirView.h */,
-				6D2949CE1E111A9500F3E7DC /* XTCirView.m */,
 				6D29499D1E110E4200F3E7DC /* ViewController.h */,
 				6D29499E1E110E4200F3E7DC /* ViewController.m */,
 				6D2949A01E110E4200F3E7DC /* Main.storyboard */,
@@ -143,6 +145,17 @@
 				6D2949BE1E110E4200F3E7DC /* Info.plist */,
 			);
 			path = XTGraphicalUITests;
+			sourceTree = "<group>";
+		};
+		6D2949E21E12148800F3E7DC /* XTGraphicalView */ = {
+			isa = PBXGroup;
+			children = (
+				6D2949E51E12148800F3E7DC /* XTCirView.h */,
+				6D2949E61E12148800F3E7DC /* XTCirView.m */,
+				6D2949E91E124F8600F3E7DC /* XTGraphicalLayer.h */,
+				6D2949EA1E124F8600F3E7DC /* XTGraphicalLayer.m */,
+			);
+			path = XTGraphicalView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,8 +293,9 @@
 			files = (
 				6D29499F1E110E4200F3E7DC /* ViewController.m in Sources */,
 				6D29499C1E110E4200F3E7DC /* AppDelegate.m in Sources */,
-				6D2949CF1E111A9500F3E7DC /* XTCirView.m in Sources */,
+				6D2949EB1E124F8600F3E7DC /* XTGraphicalLayer.m in Sources */,
 				6D2949991E110E4200F3E7DC /* main.m in Sources */,
+				6D2949E81E12148800F3E7DC /* XTCirView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +527,7 @@
 				6D2949C31E110E4200F3E7DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D2949C41E110E4200F3E7DC /* Build configuration list for PBXNativeTarget "XTGraphicalTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +536,7 @@
 				6D2949C61E110E4200F3E7DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D2949C71E110E4200F3E7DC /* Build configuration list for PBXNativeTarget "XTGraphicalUITests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +545,7 @@
 				6D2949C91E110E4200F3E7DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

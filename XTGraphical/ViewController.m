@@ -18,10 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    XTCirView *cirView = [[XTCirView alloc]initWithCenter:CGPointMake(150, 300) radius:100 color:nil cirStyle:1 isAnimation:NO];
-    XTCirView *cirView = [[XTCirView alloc]initWithFrame:CGRectMake(100, 200, 100, 100) color:nil cirStyle:XTCirEmptyStyle isAnimation:YES];
-    
-    [cirView setCirWidth:10];
+    XTCirView *cirView = [[XTCirView alloc]initWithCenter:self.view.center radius:100 colorArray:@[[UIColor yellowColor],[UIColor greenColor],[UIColor cyanColor],[UIColor orangeColor], [UIColor purpleColor]] AngleArray:@[@"14",@"23",@"66",@"40",@"33"] cirStyle:XTCirFullStyle isAnimation:NO];
+//      XTCirView *cirView = [[XTCirView alloc]initWithFrame:CGRectMake(100, 100, 100, 100) colorArray:@[[UIColor yellowColor],[UIColor greenColor],[UIColor cyanColor],[UIColor orangeColor], [UIColor purpleColor]] angleArray:@[@"14",@"23",@"66",@"40",@"33"] cirStyle:XTCirEmptyStyle isAnimation:NO];
+
     [self.view addSubview:cirView];
 }
 
