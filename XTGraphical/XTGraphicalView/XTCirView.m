@@ -30,7 +30,7 @@
 - (instancetype)initWithCenter:(CGPoint)center radius:(CGFloat)raduis colorArray:(NSArray *)colorArray AngleArray:(NSArray *)angleArray cirStyle:(XTCirStyle)style isAnimation:(bool)animation{
 
     if (self = [super initWithFrame:CGRectMake(center.x - raduis / 2, center.y - raduis / 2, raduis, raduis)]) {
-        [self drawPiewWithCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.width / 2) radius:raduis colorArray:colorArray angleArray:angleArray cirStyle:style isAnimation:angleArray];
+        [self drawPiewWithCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.width / 2) radius:raduis colorArray:colorArray angleArray:angleArray cirStyle:style isAnimation:animation];
     }
     return self;
 }
@@ -47,19 +47,36 @@
         [percentArray addObject:[NSString stringWithFormat:@"%f",angle / sum * M_PI * 2]];
     }];
     
+    NSMutableArray *timeArray = [NSMutableArray array];
+    [timeArray addObject:@"0"];
+    [angleArray enumerateObjectsUsingBlock:^(NSString *angleStr, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGFloat angle = [angleStr floatValue];
+        //默认2秒
+        [timeArray addObject:[NSString stringWithFormat:@"%f",angle / sum * 2]];
+    }];
+    
     __block CGFloat originAngle = 0;
+    __block CGFloat lastTime = 0;
     for (int i = 0; i < percentArray.count; i++) {
         NSString *angleStr = percentArray[i];
         CGFloat angle = [angleStr floatValue];
-        
-        XTGraphicalLayer *glayer = [[XTGraphicalLayer alloc]initWithCenter:center radius:radius startAngle:originAngle endAngle:angle + originAngle color:colorArray[i] cirType:style == XTPieTypeFullCir ? 0 : 1];
-        originAngle = originAngle + angle;
-        [self.layer addSublayer:glayer];
+        if (animation) {
+            NSTimer *timer = [NSTimer timerWithTimeInterval:[timeArray[i] floatValue] + lastTime repeats:NO block:^(NSTimer * _Nonnull timer) {
+                XTGraphicalLayer *glayer = [[XTGraphicalLayer alloc]initWithCenter:center radius:radius startAngle:originAngle endAngle:angle + originAngle color:colorArray[i] cirType:style == XTPieTypeFullCir ? 0 : 1];
+                CABasicAnimation * animation = [self animationWithDuration:[timeArray[i + 1] floatValue] ];
+                originAngle = originAngle + angle;
+                [self.layer addSublayer:glayer];
+                [glayer addAnimation:animation forKey:nil];
+            }];
+            [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+            lastTime = [timeArray[i] floatValue] + lastTime;
+        }else{
+            XTGraphicalLayer *glayer = [[XTGraphicalLayer alloc]initWithCenter:center radius:radius startAngle:originAngle endAngle:angle + originAngle color:colorArray[i] cirType:style == XTPieTypeFullCir ? 0 : 1];
+            originAngle = originAngle + angle;
+            [self.layer addSublayer:glayer];
         }
-        
-    
+    }
 }
-
 
 - (CABasicAnimation *)animationWithDuration:(CFTimeInterval)duration{
     CABasicAnimation * fillAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
