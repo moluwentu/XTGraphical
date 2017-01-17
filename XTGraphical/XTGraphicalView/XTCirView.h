@@ -20,6 +20,8 @@ typedef NS_ENUM(NSInteger, XTCirStyle) {
  */
 @property (nonatomic, assign)XTCirStyle cirStyle;
 
+@property (nonatomic, assign)bool isLegend;
+
 /**
  根据frame画圆
 
