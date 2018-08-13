@@ -76,7 +76,7 @@ static NSString *const LegendCellID = @"LegendCellID";
         NSString *angleStr = percentArray[i];
         CGFloat angle = [angleStr floatValue];
         
-        //图例
+//        //图例
 //        legendAngle = originAngle + angle / 2;
 //        [self calcCircleCoordinateWithCenter:center andWithAngle:legendAngle andWithRadius:radius];
         
